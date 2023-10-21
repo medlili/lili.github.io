@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday to My Love</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Love Ya Like A Sister', cursive;
+            background-color: #262626;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .title {
+            font-size: 36px;
+            color: #ffffff;
+            filter: drop-shadow(0 0 5px rgba(233, 227, 226, 0.7));
+        }
+
+        .birthday-card {
+            background-color: #ff2100;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+            max-width: 600px;
+            position: relative;
+        }
+
+        .balloon {
+            width: 100px;
+            height: 150px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            position: absolute;
+            z-index: -1;
+            transform: translateY(30px);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .balloon1 {
+            left: 20px;
+            animation-duration: 6s;
+        }
+
+        .balloon2 {
+            right: 20px;
+            animation-duration: 4s;
+        }
+
+        .message {
+            padding: 20px;
+            font-size: 18px;
+            animation: float 12s ease-in-out infinite;
+        }
+
+        .balloon3 {
+            left: 50px;
+            bottom: -20px;
+            animation-duration: 5s;
+        }
+
+        .balloon4 {
+            right: 50px;
+            bottom: -20px;
+            animation-duration: 7s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        i {
+            font-weight: bolder;
+            font-size: xx-large;
+            animation: hearts 2s ease-in-out infinite;
+            filter: drop-shadow(0 0 5px rgba(255, 33, 0, 0.7));
+        }
+
+        @keyframes hearts {
+            0%, 100% {
+                color: #ff2100;
+            }
+            50% {
+                color: #ffffff;
+            }
+        }
+
+        .heart {
+            position: relative;
+        }
+
+        /* Add position:relative to the .box elements */
+        .box {
+            position:absolute;
+            z-index: -2;
+        }
+        audio {
+            width: 1px; height: 1px;
+        }
+    </style>
+</head>
+<body class="heart">
+    <div class="container">
+
+        <div class="birthday-card">
+            <div class="balloon balloon1"></div>
+            <div class="balloon balloon2"></div>
+            <div class="message">
+                <h1 class="title">Happy Birthday, Mon Amour!</h1><br>
+                <p>On this special day, I want to wish you all the happiness in the world.</p>
+                <p>May your day be filled with love, laughter, and joy.</p>
+                <p>You mean the world to me, and I'm so grateful to have you in my life.</p>
+                <p>Je t'aime plus que tout, Lili!</p><br>
+                <h1>KENBGHIK<i class="fas fa-heart"></i></h1>
+            </div>
+            <div class="balloon balloon3"></div>
+            <div class="balloon balloon4"></div>
+        </div>
+    </div>
+    <iframe width="1" height="1" src="https://www.youtube.com/embed/nvxF-dFNEKo?autoplay=1&mute=1" title="Happy birthday (Bulan Sutena cover) lofi remix" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>    
+    
+    <audio controls autoplay>
+        <source src="Happy birthday.mp3" type="audio/mpeg">
+      </audio>
+      
+    
+    <script>
+      
+      
+      function setRandomPosition(element) {
+            const randomLeft = Math.random() * (window.innerWidth - 100);
+            const randomTop = Math.random() * (window.innerHeight - 100);
+            element.style.left = randomLeft + 'px';
+            element.style.top = randomTop + 'px';
+        }
+
+        function createHeart() {
+            const heartIcon = document.createElement('i');
+            heartIcon.className = 'fas fa-heart box';
+            document.querySelector('.heart').appendChild(heartIcon);
+            setRandomPosition(heartIcon);
+        }
+
+        // Create heart icons on page load
+        for (let i = 0; i < 50; i++) {
+            createHeart();
+        }
+
+        // Update positions on window resize
+        window.addEventListener('resize', function() {
+            const heartIcons = document.querySelectorAll('.heart .box');
+            heartIcons.forEach(function(heartIcon) {
+                setRandomPosition(heartIcon);
+            });
+        });
+
+        setTimeout(function() {
+            const videoIframe = document.querySelector('iframe');
+            const src = videoIframe.src.replace('mute=1', 'mute=0');
+            videoIframe.src = src;
+        }, 3000);
+    </script>
+</body>
+</html>
